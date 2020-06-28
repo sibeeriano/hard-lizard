@@ -1,5 +1,6 @@
 let homePage = require('./homePage');
-let enCartelera = require('./enCartelera')
+let enCartelera = require('./enCartelera');
+
 
 let index = {
     
@@ -26,7 +27,21 @@ let index = {
     },
 
     enCartelera:function(res){
-        res.write(enCartelera.titulo)
+        //titulo
+        res.write(`                                                 ***************** ${enCartelera.titulo} ***************** \n\n` )
+        //cantidad de pelis
+        res.write(`Peliculas en cartel: ${homePage.cantidad()}`)
+        res.write((`\n\n`))
+        //pelis titulo + reseña
+        let movies = enCartelera.leerJson();
+        movies.movies.forEach(function(datos){
+                res.write(`TITULO: ${datos.title}`)
+                res.write((`\n\n`))
+                res.write(`RESEÑA: ${datos.overview}`)
+                res.write((`\n\n\n`))
+            })  
+        
+        res.end();
         
     },
 
