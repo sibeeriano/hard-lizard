@@ -15,7 +15,7 @@ case '/en-cartelera':
 break
 
 case '/mas-votadas':
-    index.masVotados(res)
+    index.masVotadas(res)
 break
 
 case '/sucursales':
