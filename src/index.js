@@ -1,6 +1,7 @@
 let homePage = require('./homePage');
 let enCartelera = require('./enCartelera');
 let masVotadas = require('./masVotadas');
+let sucursales = require('./sucursales')
 
 let index = {
     
@@ -72,7 +73,23 @@ let index = {
 
     },
 
-    sucursales:function(){
+    sucursales:function(res){
+        //TITULO
+        res.write(sucursales.titulo)
+        res.write(`\n\n`)
+        res.write("PUEDES ELEGIR ENTRE CUALQUIERA DENUESTRAS " + sucursales.cantidad() + " SALAS!")        
+        res.write(`\n\n`)
+        //LISTADOS DE SALAS
+        let sucus = sucursales.leerJson();
+        sucus.theaters.forEach(function(datos){
+                res.write(`NOMBRE: ${datos.name}`)
+                res.write((`\n\n`))
+                res.write(`DIRECCION: ${datos.address}`)
+                res.write((`\n\n\n`))
+                res.write(`INFO DEL LUGAR: ${datos.description}`)
+                res.write((`\n\n\n`))
+            })  
+        res.end();
 
     },
 
