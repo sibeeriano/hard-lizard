@@ -1,0 +1,2 @@
+const { enCartelera } = require(".");
+

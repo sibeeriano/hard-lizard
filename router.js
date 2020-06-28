@@ -1,29 +1,37 @@
-let router = function(url, ) {
+const index = require('./src/index')
+
+
+let router = function(url,res) {
+
 switch(url){
+
 case '/':
+    index.homePage()
 break
 
 case '/en-cartelera':
+    index.enCartelera()
 break
 
 case '/mas-votadas':
+    index.masVotados()
 break
 
 case '/sucursales':
+    index.sucursales()
 break
 
-case '/home-page':
-break
-
-case '/':
+case 'contacto':
+    index.contactos()
 break
 
 case '/preguntas-frecuentes':
+    index.preguntasFrecuentes()
 break
 
-default 
+default: 
 
-
+};
 }
 
 module.exports = router

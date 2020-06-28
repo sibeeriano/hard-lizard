@@ -1,13 +1,34 @@
+
+
 let index = {
-    homePage:function()
 
-},
-enCartelera:function(){
+    homePage:function(){
+        
+    },
 
-},
-masVotadas:function(){
+    enCartelera:function(){
+        
+    },
 
-},
+    masVotados:function(){
+
+    },
+
+    sucursales:function(){
+
+    },
+
+    contactos:function(){
+
+    },
+
+    preguntasFrecuentes:function(){
+
+    }
+
+
+
+}
 
 
 
