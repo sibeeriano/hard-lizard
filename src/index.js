@@ -2,6 +2,8 @@ let homePage = require('./homePage');
 let enCartelera = require('./enCartelera');
 let masVotadas = require('./masVotadas');
 let sucursales = require('./sucursales')
+let contacto = require('./contacto')
+let faqs = require('./preguntasFrecuentes')
 
 let index = {
     
@@ -93,11 +95,34 @@ let index = {
 
     },
 
-    contactos:function(){
+    contactos:function(res){
+        //titulo
+        res.write(`\n`)
+        res.write(contacto.titulo)
+        res.write(`\n`)
+        res.write(`\n`)
+        //contenido
+        res.write(contacto.contenido)
+        res.end()
+        
 
     },
 
-    preguntasFrecuentes:function(){
+    preguntasFrecuentes:function(res){
+        //TITULO
+        res.write(faqs.titulo)
+        res.write(`\n\n`)
+        res.write("Dato de color: tenemos en total " + faqs.cantidad() + " preguntas!")        
+        res.write(`\n\n`)
+        //LISTADOS DE SALAS
+        let preguntas = faqs.leerJson();
+        preguntas.faqs.forEach(function(datos){
+                res.write(`PREGUNTA: ${datos.faq_title}`)
+                res.write((`\n\n`))
+                res.write(`RESPUESTA: ${datos.faq_answer}`)
+                res.write((`\n\n\n`))
+                })  
+        res.end();
 
     }
 

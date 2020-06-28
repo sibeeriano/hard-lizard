@@ -22,7 +22,7 @@ case '/sucursales':
     index.sucursales(res)
 break
 
-case 'contacto':
+case '/contacto':
     index.contactos(res)
 break
 
